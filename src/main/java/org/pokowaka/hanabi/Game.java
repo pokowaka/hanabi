@@ -1,4 +1,4 @@
-package game;
+package org.pokowaka.hanabi;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -100,7 +100,7 @@ public class Game {
     public int play() {
         while (!isOver()) {
             nextPlayer().play();
-            System.out.println("Piles: " + this.piles);
+            System.out.println(this);
         }
         return score();
     }
@@ -108,9 +108,8 @@ public class Game {
     @Override
     public String toString() {
         return "Game{" +
-                "code=" + System.identityHashCode(this) +
-                ", piles=" + piles +
-                ", deck=" + deck +
+                "piles=" + piles +
+                ", deck=" + deck.size() +
                 ", hints=" + hints +
                 ", red=" + red +
                 ", currentPlayer=" + currentPlayer +
@@ -118,7 +117,7 @@ public class Game {
     }
 
     public boolean isOver() {
-        return red <= 0 || deck.isEmpty();
+        return red <= 0 || deck.isEmpty() || hints < 0;
     }
 
     public Player nextPlayer() {
@@ -183,7 +182,7 @@ public class Game {
     }
 
     public int getPlayerIdx() {
-        return currentPlayer;
+        return currentPlayer % players.size();
     }
 
     public int getFireworks() {

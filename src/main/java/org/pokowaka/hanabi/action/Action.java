@@ -1,6 +1,6 @@
-package game.action;
+package org.pokowaka.hanabi.action;
 
-import game.Game;
+import org.pokowaka.hanabi.Game;
 
 /**
  * Created by jansene on 10/2/17.

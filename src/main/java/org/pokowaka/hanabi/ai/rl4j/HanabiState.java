@@ -1,9 +1,8 @@
-package game.ai.rl4j;
+package org.pokowaka.hanabi.ai.rl4j;
 
-
-import game.Card;
-import game.Game;
-import game.Player;
+import org.pokowaka.hanabi.Card;
+import org.pokowaka.hanabi.Game;
+import org.pokowaka.hanabi.Player;
 import org.deeplearning4j.rl4j.space.Encodable;
 
 import java.util.Vector;
@@ -55,6 +54,7 @@ public class HanabiState implements Encodable {
             this.encoded[i++] = current.knowsNumber(k) ? c.getNumber() : 0;
         }
 
+        assert i == encoded.length;
         return encoded;
     }
 }

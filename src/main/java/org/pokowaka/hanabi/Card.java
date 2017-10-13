@@ -1,9 +1,11 @@
-package game;
+package org.pokowaka.hanabi;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Created by jansene on 9/28/17.
  */
-public final class Card {
+public final class Card implements  Comparable<Card> {
 
     private final int number;
     private final Color color;
@@ -32,6 +34,15 @@ public final class Card {
                 "number=" + number +
                 ", color=" + color +
                 '}';
+    }
+
+    @Override
+    public int compareTo(@NotNull Card o) {
+        if (getNumber() == o.getNumber()) {
+            return Integer.compare(getColor().value, o.getColor().value);
+        } else {
+            return Integer.compare(getNumber(), o.getNumber());
+        }
     }
 
     public enum Color {

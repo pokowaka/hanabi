@@ -1,16 +1,10 @@
-package game.action;
+package org.pokowaka.hanabi.action;
 
+import org.pokowaka.hanabi.Card;
+import org.pokowaka.hanabi.Game;
+import org.pokowaka.hanabi.Player;
 
-import game.Card;
-import game.Game;
-import game.Player;
-
-import java.util.Iterator;
-
-/**
- * Created by jansene on 10/2/17.
- */
-
+/** Created by jansene on 10/2/17. */
 public class Hint extends Action {
     private final int player;
     private final int number;
@@ -48,10 +42,6 @@ public class Hint extends Action {
 
     @Override
     public String toString() {
-        return "Hint{" +
-                "player=" + player +
-                ", number=" + number +
-                ", color=" + color +
-                '}';
+        return "Hint{" + "player=" + player + ", number=" + number + ", color=" + color + '}';
     }
 }

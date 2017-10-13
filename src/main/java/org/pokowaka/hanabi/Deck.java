@@ -1,12 +1,9 @@
-package game;
+package org.pokowaka.hanabi;
 
 import java.util.Collections;
 import java.util.Vector;
 
-/**
- * Created by jansene on 9/28/17.
- */
-
+/** Created by jansene on 9/28/17. */
 public class Deck {
     private Vector<Card> deck = new Vector<>();
     private Vector<Card> discard = new Vector<>();
@@ -52,10 +49,9 @@ public class Deck {
         discard.clear();
 
         for (Card.Color c : Card.Color.values()) {
-            if (c == Card.Color.Unknown)
-                continue;
+            if (c == Card.Color.Unknown) continue;
 
-            addCards(c, 1, 5);
+            addCards(c, 1, 3);
             addCards(c, 2, 2);
             addCards(c, 3, 2);
             addCards(c, 4, 2);
@@ -67,13 +63,10 @@ public class Deck {
 
     @Override
     public String toString() {
-        return "Deck{" +
-                "deck=" + deck.size() +
-                ", discard=" + discard.size() +
-                '}';
+        return "Deck{" + "deck=" + deck.size() + ", discard=" + discard.size() + '}';
     }
 
     public int size() {
-       return deck.size();
+        return deck.size();
     }
 }

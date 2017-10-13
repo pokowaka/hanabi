@@ -1,4 +1,4 @@
-package game.action;
+package org.pokowaka.hanabi.action;
 
 /**
  * Created by jansene on 10/5/17.

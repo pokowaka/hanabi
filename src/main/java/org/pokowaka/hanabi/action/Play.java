@@ -1,14 +1,10 @@
-package game.action;
+package org.pokowaka.hanabi.action;
 
+import org.pokowaka.hanabi.Card;
+import org.pokowaka.hanabi.Game;
+import org.pokowaka.hanabi.Player;
 
-import game.Card;
-import game.Game;
-import game.Player;
-
-/**
- * Created by jansene on 10/2/17.
- */
-
+/** Created by jansene on 10/2/17. */
 public class Play extends Action {
     int card;
 
@@ -32,10 +28,6 @@ public class Play extends Action {
 
     @Override
     public String toString() {
-        return "Play{" +
-                "idx=" + this.card +
-                "card=" + game.getCurrent().getCard(this.card) +
-                '}';
+        return "Play{" + game.getCurrent().getCard(this.card) + '}';
     }
 }
-

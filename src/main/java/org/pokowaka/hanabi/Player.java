@@ -1,14 +1,12 @@
-package game;
+package org.pokowaka.hanabi;
 
-import game.action.Action;
+import org.pokowaka.hanabi.action.Action;
 
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.Vector;
 
-/**
- * Created by jansene on 9/28/17.
- */
-
+/** Created by jansene on 9/28/17. */
 public class Player {
     private final Vector<Card> hand = new Vector<>();
     private final Strategy strategy;
@@ -37,6 +35,8 @@ public class Player {
         for (int i = 0; i < 4; i++) {
             hand.add(game.draw());
         }
+
+        Collections.sort(hand);
     }
 
     public void play() {
@@ -77,15 +77,19 @@ public class Player {
         knowsColor.remove(removed);
         knowsNumber.remove(removed);
         hand.add(game.draw());
-     }
+        Collections.sort(hand);
+    }
 
     @Override
     public String toString() {
-        return "Player{" +
-                "hand=" + hand +
-                ", knowsColor=" + knowsColor +
-                ", knowsNumber=" + knowsNumber +
-                '}';
+        return "Player{"
+                + "hand="
+                + hand
+                + ", knowsColor="
+                + knowsColor
+                + ", knowsNumber="
+                + knowsNumber
+                + '}';
     }
 
     public Iterator<Card> getCards() {
