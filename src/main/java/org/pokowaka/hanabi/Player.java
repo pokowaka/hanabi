@@ -58,7 +58,7 @@ public class Player {
 
     public void revealColor(Card.Color c) {
         for (Card card : hand) {
-            if (card.getColor() == c) {
+            if (card.getColor() == c && !knowsColor.contains(card)) {
                 knowsColor.add(card);
             }
         }
@@ -66,7 +66,7 @@ public class Player {
 
     public void revealNumber(int nr) {
         for (Card card : hand) {
-            if (card.getNumber() == nr) {
+            if (card.getNumber() == nr && !knowsNumber.contains(card)) {
                 knowsNumber.add(card);
             }
         }

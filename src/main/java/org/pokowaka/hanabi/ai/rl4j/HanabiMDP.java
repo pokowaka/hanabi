@@ -14,6 +14,7 @@ public class HanabiMDP implements MDP<HanabiState, Integer, DiscreteSpace> {
     protected final HanabiSpace discreteSpace;
     protected final ObservationSpace<HanabiState> observationSpace;
     private final Game game;
+    private int steps = 0;
 
     public HanabiMDP() {
         this(4);
@@ -42,6 +43,7 @@ public class HanabiMDP implements MDP<HanabiState, Integer, DiscreteSpace> {
     @Override
     public HanabiState reset() {
         game.reset();
+        steps = 0;
         return new HanabiState(game);
     }
 
@@ -52,11 +54,11 @@ public class HanabiMDP implements MDP<HanabiState, Integer, DiscreteSpace> {
     public StepReply<HanabiState> step(Integer action) {
         Action a = (Action) discreteSpace.encode(action);
         assert a.isAllowed();
-        double reward = 0;
+        double reward = steps++;
         a.setGame(game);
         a.play();
         if (game.isOver())
-            reward = game.score();
+            reward = steps + game.score();
 
         return new StepReply<>(new HanabiState(game), reward, isDone(), null);
     }

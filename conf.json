@@ -1,16 +1,16 @@
 {
     "seed":123,
     "maxEpochStep":200,
-    "maxStep":15000,
+    "maxStep":1000000,
     "expRepMaxSize":150000,
     "batchSize":32,
     "targetDqnUpdateFreq":500,
     "updateStart":10,
     "rewardFactor":0.01,
-    "gamma":0.9,
+    "gamma":0.90,
     "errorClamp":1.0,
     "minEpsilon":0.1,
-    "epsilonNbStep":1000,
+    "epsilonNbStep":100000,
     "doubleDQN":true
 }
 
